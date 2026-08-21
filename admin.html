@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RR Success Point — Admin</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f4f6fa;margin:0;color:#0b1934}.top{background:#06172f;color:#fff;padding:22px}.wrap{max-width:1100px;margin:25px auto;padding:0 15px}.card{background:#fff;border-radius:14px;padding:20px;box-shadow:0 8px 25px #0001;margin-bottom:20px}.btn{border:0;border-radius:8px;padding:10px 15px;cursor:pointer;font-weight:700}.danger{background:#c8201e;color:#fff}.blue{background:#06172f;color:#fff}table{width:100%;border-collapse:collapse;min-width:900px}th,td{padding:10px;border-bottom:1px solid #ddd;text-align:left}th{background:#06172f;color:#fff}.tablewrap{overflow:auto}.note{background:#fff7d1;border-left:5px solid #f3c000;padding:12px}
+</style></head><body>
+<div class="top"><b>RR SUCCESS POINT — ADMIN</b><div>Local application viewer</div></div>
+<div class="wrap">
+<div class="card"><div class="note"><b>Important:</b> This page can show applications saved in the same browser/device. For all students from every phone to reach one central admin list, use the free Google Apps Script setup described in README.txt.</div><br>
+<button class="btn blue" onclick="downloadCSV()">DOWNLOAD CSV</button>
+<button class="btn danger" onclick="clearData()">CLEAR LOCAL DATA</button>
+</div>
+<div class="card"><h2>Applications (<span id="count">0</span>)</h2><div class="tablewrap"><table><thead><tr><th>ID</th><th>Date</th><th>Student</th><th>Parent</th><th>Mobile</th><th>Class</th><th>Subject</th><th>School</th></tr></thead><tbody id="rows"></tbody></table></div></div>
+</div>
+<script>
+function get(){return JSON.parse(localStorage.getItem("rrsp_enrollments")||"[]")}
+function render(){let a=get();document.getElementById("count").textContent=a.length;document.getElementById("rows").innerHTML=a.map(x=>`<tr><td>${x.id}</td><td>${x.savedAt}</td><td>${x.student}</td><td>${x.parent}</td><td>${x.phone}</td><td>${x.className}</td><td>${x.subject}</td><td>${x.school||""}</td></tr>`).join("")}
+function clearData(){if(confirm("Delete all local applications from this browser?")){localStorage.removeItem("rrsp_enrollments");render()}}
+function downloadCSV(){let a=get();if(!a.length){alert("No local applications.");return}let head=["ID","Date","Student","Parent","Mobile","Class","Subject","School","Address"];let rows=[head,...a.map(x=>[x.id,x.savedAt,x.student,x.parent,x.phone,x.className,x.subject,x.school,x.address])];let csv=rows.map(r=>r.map(v=>`"${String(v??"").replaceAll('"','""')}"`).join(",")).join("\n");let blob=new Blob([csv],{type:"text/csv"}),url=URL.createObjectURL(blob),el=document.createElement("a");el.href=url;el.download="rr-success-point-enrollments.csv";el.click();URL.revokeObjectURL(url)}
+render();
+</script></body></html>

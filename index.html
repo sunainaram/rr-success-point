@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="RR Success Point - Classes 8 to 12. English by Ram Sir, Mathematics & Science by Raj Sir.">
+<title>RR Success Point | Classes 8 to 12</title>
+<link rel="icon" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Roboto+Slab:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-shell">
+    <a href="#home" class="brand"><span>RR</span> SUCCESS POINT</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+    <nav id="nav">
+      <a href="#home">HOME</a>
+      <a href="#courses">COURSES</a>
+      <a href="#faculty">FACULTY</a>
+      <a href="#why">WHY US</a>
+      <a href="#enroll">ENROLL</a>
+      <a href="#fees">FEES</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="hero-banner-wrap">
+    <img class="hero-banner" src="assets/rr-success-point-banner.jpg" alt="RR Success Point coaching banner">
+    <div class="hero-actions">
+      <a href="#enroll" class="action-btn primary">ENROLL ONLINE</a>
+      <a href="#contact" class="action-btn secondary">CONTACT US</a>
+    </div>
+  </div>
+</section>
+
+<section class="brand-strip">
+  <div>STRONG CONCEPTS</div><span>•</span>
+  <div>SMART LEARNING</div><span>•</span>
+  <div>SUCCESS ASSURED</div>
+</section>
+
+<section id="courses" class="section">
+  <div class="section-title">
+    <small>ACADEMIC PROGRAM</small>
+    <h2>CLASS <em>8 TO 12</em></h2>
+    <p>English • Mathematics • Science</p>
+  </div>
+  <div class="course-grid">
+    <article class="course english"><div class="course-icon">📖</div><h3>ENGLISH</h3><p>Grammar, writing, literature and exam-focused preparation.</p><b>RAM SIR</b></article>
+    <article class="course maths"><div class="course-icon">× ÷ + −</div><h3>MATHEMATICS</h3><p>Concept building, problem solving and regular practice.</p><b>RAJ SIR</b></article>
+    <article class="course science"><div class="course-icon">⚗</div><h3>SCIENCE</h3><p>Clear concepts, diagrams, numericals and revision support.</p><b>RAJ SIR</b></article>
+  </div>
+</section>
+
+<section id="faculty" class="section faculty-section">
+  <div class="section-title light-title">
+    <small>EXPERIENCED FACULTY</small>
+    <h2>MEET OUR <em>TEACHERS</em></h2>
+    <p>Focused guidance • Individual attention • Doubt clearing</p>
+  </div>
+  <div class="faculty-grid">
+    <article class="faculty-card blue-card">
+      <div class="faculty-image"><img src="assets/ram-banner-cutout.jpg" alt="Ram Sir"></div>
+      <div class="faculty-body">
+        <small>ENGLISH</small><h3>RAM SIR</h3>
+        <p>Concept clarity, regular practice and personal guidance for Classes 8–12.</p>
+        <a href="tel:7037939060" class="phone">☎ 7037939060</a>
+      </div>
+    </article>
+    <article class="faculty-card green-card">
+      <div class="faculty-image"><img src="assets/raj-banner-cutout.jpg" alt="Raj Sir"></div>
+      <div class="faculty-body">
+        <small>MATHEMATICS & SCIENCE</small><h3>RAJ SIR</h3>
+        <p>Simple explanations, practice and doubt clearing for stronger concepts.</p>
+        <a href="tel:9720413056" class="phone">☎ 9720413056</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="why" class="section why-section">
+  <div class="section-title">
+    <small>OUR PROMISE</small>
+    <h2>WHY <em>RR SUCCESS POINT?</em></h2>
+  </div>
+  <div class="feature-grid">
+    <div><span>🎯</span><h3>EXPERT FACULTY</h3><p>Dedicated teaching and clear explanations.</p></div>
+    <div><span>💡</span><h3>CONCEPT CLARITY</h3><p>Learn the concept, then practice it.</p></div>
+    <div><span>📝</span><h3>REGULAR TEST</h3><p>Frequent practice to build exam confidence.</p></div>
+    <div><span>📈</span><h3>BETTER RESULTS</h3><p>Track improvement through consistent practice.</p></div>
+    <div><span>🏆</span><h3>BRIGHT FUTURE</h3><p>Strong basics for the next academic step.</p></div>
+  </div>
+</section>
+
+<section id="enroll" class="section enroll-section">
+<div class="section-title light-title"><small>ADMISSION / ENROLLMENT</small><h2>ENROLL <em>ONLINE</em></h2><p>Fill the form. After submitting, you will stay on this website.</p></div>
+<form id="enrollForm" class="enroll-form">
+<div class="form-grid">
+<label>Student Name<input id="studentName" required></label>
+<label>Father / Mother Name<input id="parentName" required></label>
+<label>Mobile Number<input id="studentPhone" inputmode="numeric" maxlength="10" required></label>
+<label>School Name<input id="schoolName"></label>
+<label>Class<select id="className" required><option value="">Select</option><option>Class 8</option><option>Class 9</option><option>Class 10</option><option>Class 11</option><option>Class 12</option></select></label>
+<label>Subject<select id="subject" required><option value="">Select</option><option>English</option><option>Mathematics</option><option>Science</option><option>English + Mathematics</option><option>English + Mathematics + Science</option></select></label>
+<label class="full">Address<textarea id="address"></textarea></label>
+</div>
+<button class="action-btn primary" type="submit">SUBMIT APPLICATION</button>
+<div id="enrollSuccess" class="success-box" hidden><h3>✓ Application Saved</h3><p id="applicationText"></p><div class="success-actions"><button type="button" id="whatsappEnrollment" class="action-btn whatsapp-btn">SEND DETAILS ON WHATSAPP</button><button type="button" id="newEnrollment" class="action-btn secondary dark-btn">NEW APPLICATION</button></div></div>
+</form></section>
+
+<section id="fees" class="section fees-section">
+<div class="section-title"><small>FEE STRUCTURE</small><h2>COACHING <em>FEES</em></h2><p>Change the amounts later directly in index.html.</p></div>
+<div class="fee-table-wrap"><table class="fee-table"><thead><tr><th>CLASS</th><th>SUBJECT</th><th>MONTHLY FEE</th></tr></thead><tbody>
+<tr><td>8</td><td>English</td><td>₹500</td></tr>
+<tr><td>8</td><td>Mathematics + Science</td><td>₹500</td></tr>
+<tr><td>9</td><td>English</td><td>₹500</td></tr>
+<tr><td>9</td><td>Mathematics + Science</td><td>₹500</td></tr>
+<tr><td>10</td><td>English</td><td>₹500</td></tr>
+<tr><td>10</td><td>Mathematics + Science</td><td>₹500</td></tr>
+<tr><td>11–12</td><td>English</td><td>₹500</td></tr>
+<tr><td>11–12</td><td>Mathematics + Science</td><td>₹500</td></tr>
+</tbody></table></div>
+<div class="fees-box"><div><h3>PAY WITH UPI</h3><p>Scan the QR using any UPI app. After payment, send the screenshot on WhatsApp.</p><p class="upi-id"><b>UPI ID:</b> 7037939060@sbi</p><a class="action-btn secondary dark" target="_blank" rel="noopener" href="https://wa.me/917037939060?text=Hello%20RR%20Success%20Point%2C%20I%20have%20made%20my%20fee%20payment.">SEND PAYMENT SCREENSHOT →</a></div><div class="qr-box"><img class="upi-real" src="assets/upi-qr.png" alt="RR Success Point UPI QR"></div></div>
+</section>
+
+<section id="contact" class="section contact-section">
+  <div class="section-title">
+    <small>GET IN TOUCH</small>
+    <h2>CONTACT <em>US</em></h2>
+  </div>
+  <div class="contact-grid">
+    <a class="contact-card" href="tel:7037939060"><b>RAM SIR</b><span>ENGLISH</span><strong>7037939060</strong></a>
+    <a class="contact-card" href="tel:9720413056"><b>RAJ SIR</b><span>MATHEMATICS & SCIENCE</span><strong>9720413056</strong></a>
+    <a class="contact-card" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Rajkiye+Inter+College+Road+Neoria+Colony"><b>ADDRESS</b><span>RAJKIYE INTER COLLEGE ROAD</span><strong>NEORIA COLONY</strong></a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-brand">RR <span>SUCCESS POINT</span></div>
+  <p>LEARN TODAY, LEAD TOMORROW</p>
+  <small>© <span id="year"></span> RR Success Point</small>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/917037939060?text=Hello%20RR%20Success%20Point%2C%20I%20want%20information%20about%20coaching." target="_blank" rel="noopener">WA</a>
+
+<script src="script.js"></script>
+</body>
+</html>
