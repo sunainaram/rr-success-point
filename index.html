@@ -2,155 +2,199 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="RR Success Point - Classes 8 to 12. English by Ram Sir, Mathematics & Science by Raj Sir.">
-<title>RR Success Point | Classes 8 to 12</title>
-<link rel="icon" href="assets/favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Roboto+Slab:wght@700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RR SUCCESS POINT - Coaching Management</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--text:#172033;--muted:#687386;--primary:#1d4ed8;--danger:#dc2626;--ok:#15803d;--border:#dbe2ea}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text)}
+button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:9px;padding:10px 14px;background:var(--primary);color:#fff}.secondary{background:#64748b}.danger{background:var(--danger)}.ok{background:var(--ok)}
+header{background:#0f172a;color:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:5}
+header h1{font-size:18px;margin:0}.wrap{display:flex;min-height:calc(100vh - 58px)}aside{width:230px;background:#111827;color:#fff;padding:12px;flex-shrink:0}aside button{width:100%;text-align:left;margin:4px 0;background:transparent}aside button.active,aside button:hover{background:#1e3a8a}
+main{padding:18px;width:100%;max-width:1400px;margin:auto}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;box-shadow:0 2px 8px #00000008}.metric{font-size:26px;font-weight:bold;margin-top:7px}.muted{color:var(--muted);font-size:13px}
+h2{margin-top:0}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.toolbar input,.toolbar select{min-width:180px}
+input,select,textarea{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;background:#fff;color:#111827}label{font-size:13px;font-weight:bold;display:block;margin:8px 0 5px}
+.formgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.formgrid .full{grid-column:1/-1}
+.tablewrap{overflow:auto;background:#fff;border:1px solid var(--border);border-radius:12px}table{border-collapse:collapse;width:100%;min-width:800px}th,td{padding:9px;border-bottom:1px solid var(--border);text-align:left;font-size:13px}th{background:#eef4ff;position:sticky;top:0}
+.badge{display:inline-block;padding:4px 8px;border-radius:99px;font-size:11px;background:#e2e8f0}.paid{background:#dcfce7;color:#166534}.due{background:#fee2e2;color:#991b1b}.pending{background:#fef3c7;color:#92400e}
+.hidden{display:none}.modal{position:fixed;inset:0;background:#0008;display:flex;align-items:center;justify-content:center;padding:16px;z-index:20}.modalbox{background:#fff;border-radius:14px;padding:18px;width:min(800px,100%);max-height:90vh;overflow:auto}
+.login{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0f172a}.loginbox{width:min(420px,92%);background:#fff;padding:24px;border-radius:16px}.loginbox h1{margin-top:0}
+.toast{position:fixed;right:15px;bottom:15px;background:#111827;color:#fff;padding:12px 16px;border-radius:10px;z-index:50}
+@media(max-width:900px){aside{width:62px;padding:7px}aside button{font-size:0;text-align:center}aside button::first-letter{font-size:20px}.grid{grid-template-columns:repeat(2,1fr)}.formgrid{grid-template-columns:1fr}main{padding:12px}.card{padding:12px}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.toolbar input,.toolbar select{width:100%}}
+</style>
 </head>
 <body>
-
-<header class="site-header">
-  <div class="nav-shell">
-    <a href="#home" class="brand"><span>RR</span> SUCCESS POINT</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
-    <nav id="nav">
-      <a href="#home">HOME</a>
-      <a href="#courses">COURSES</a>
-      <a href="#faculty">FACULTY</a>
-      <a href="#why">WHY US</a>
-      <a href="#enroll">ENROLL</a>
-      <a href="#fees">FEES</a>
-      <a href="#contact">CONTACT</a>
-    </nav>
+<div id="login" class="login">
+  <div class="loginbox">
+    <h1>RR SUCCESS POINT</h1>
+    <p class="muted">Free Coaching Management Software</p>
+    <label>Admin PIN</label><input id="pin" type="password" placeholder="Default: 1234">
+    <button style="width:100%;margin-top:12px" onclick="login()">Login</button>
+    <p class="muted">First login PIN: <b>1234</b>. Change it from Settings.</p>
   </div>
-</header>
-
-<main>
-<section id="home" class="hero">
-  <div class="hero-banner-wrap">
-    <img class="hero-banner" src="assets/rr-success-point-banner.jpg" alt="RR Success Point coaching banner">
-    <div class="hero-actions">
-      <a href="#enroll" class="action-btn primary">ENROLL ONLINE</a>
-      <a href="#contact" class="action-btn secondary">CONTACT US</a>
-    </div>
-  </div>
-</section>
-
-<section class="brand-strip">
-  <div>STRONG CONCEPTS</div><span>•</span>
-  <div>SMART LEARNING</div><span>•</span>
-  <div>SUCCESS ASSURED</div>
-</section>
-
-<section id="courses" class="section">
-  <div class="section-title">
-    <small>ACADEMIC PROGRAM</small>
-    <h2>CLASS <em>8 TO 12</em></h2>
-    <p>English • Mathematics • Science</p>
-  </div>
-  <div class="course-grid">
-    <article class="course english"><div class="course-icon">📖</div><h3>ENGLISH</h3><p>Grammar, writing, literature and exam-focused preparation.</p><b>RAM SIR</b></article>
-    <article class="course maths"><div class="course-icon">× ÷ + −</div><h3>MATHEMATICS</h3><p>Concept building, problem solving and regular practice.</p><b>RAJ SIR</b></article>
-    <article class="course science"><div class="course-icon">⚗</div><h3>SCIENCE</h3><p>Clear concepts, diagrams, numericals and revision support.</p><b>RAJ SIR</b></article>
-  </div>
-</section>
-
-<section id="faculty" class="section faculty-section">
-  <div class="section-title light-title">
-    <small>EXPERIENCED FACULTY</small>
-    <h2>MEET OUR <em>TEACHERS</em></h2>
-    <p>Focused guidance • Individual attention • Doubt clearing</p>
-  </div>
-  <div class="faculty-grid">
-    <article class="faculty-card blue-card">
-      <div class="faculty-image"><img src="assets/ram-banner-cutout.jpg" alt="Ram Sir"></div>
-      <div class="faculty-body">
-        <small>ENGLISH</small><h3>RAM SIR</h3>
-        <p>Concept clarity, regular practice and personal guidance for Classes 8–12.</p>
-        <a href="tel:7037939060" class="phone">☎ 7037939060</a>
-      </div>
-    </article>
-    <article class="faculty-card green-card">
-      <div class="faculty-image"><img src="assets/raj-banner-cutout.jpg" alt="Raj Sir"></div>
-      <div class="faculty-body">
-        <small>MATHEMATICS & SCIENCE</small><h3>RAJ SIR</h3>
-        <p>Simple explanations, practice and doubt clearing for stronger concepts.</p>
-        <a href="tel:9720413056" class="phone">☎ 9720413056</a>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section id="why" class="section why-section">
-  <div class="section-title">
-    <small>OUR PROMISE</small>
-    <h2>WHY <em>RR SUCCESS POINT?</em></h2>
-  </div>
-  <div class="feature-grid">
-    <div><span>🎯</span><h3>EXPERT FACULTY</h3><p>Dedicated teaching and clear explanations.</p></div>
-    <div><span>💡</span><h3>CONCEPT CLARITY</h3><p>Learn the concept, then practice it.</p></div>
-    <div><span>📝</span><h3>REGULAR TEST</h3><p>Frequent practice to build exam confidence.</p></div>
-    <div><span>📈</span><h3>BETTER RESULTS</h3><p>Track improvement through consistent practice.</p></div>
-    <div><span>🏆</span><h3>BRIGHT FUTURE</h3><p>Strong basics for the next academic step.</p></div>
-  </div>
-</section>
-
-<section id="enroll" class="section enroll-section">
-<div class="section-title light-title"><small>ADMISSION / ENROLLMENT</small><h2>ENROLL <em>ONLINE</em></h2><p>Fill the form. After submitting, you will stay on this website.</p></div>
-<form id="enrollForm" class="enroll-form">
-<div class="form-grid">
-<label>Student Name<input id="studentName" required></label>
-<label>Father / Mother Name<input id="parentName" required></label>
-<label>Mobile Number<input id="studentPhone" inputmode="numeric" maxlength="10" required></label>
-<label>School Name<input id="schoolName"></label>
-<label>Class<select id="className" required><option value="">Select</option><option>Class 8</option><option>Class 9</option><option>Class 10</option><option>Class 11</option><option>Class 12</option></select></label>
-<label>Subject<select id="subject" required><option value="">Select</option><option>English</option><option>Mathematics</option><option>Science</option><option>English + Mathematics</option><option>English + Mathematics + Science</option></select></label>
-<label class="full">Address<textarea id="address"></textarea></label>
 </div>
-<button class="action-btn primary" type="submit">SUBMIT APPLICATION</button>
-<div id="enrollSuccess" class="success-box" hidden><h3>✓ Application Saved</h3><p id="applicationText"></p><div class="success-actions"><button type="button" id="whatsappEnrollment" class="action-btn whatsapp-btn">SEND DETAILS ON WHATSAPP</button><button type="button" id="newEnrollment" class="action-btn secondary dark-btn">NEW APPLICATION</button></div></div>
-</form></section>
 
-<section id="fees" class="section fees-section">
-<div class="section-title"><small>FEE STRUCTURE</small><h2>COACHING <em>FEES</em></h2><p>Change the amounts later directly in index.html.</p></div>
-<div class="fee-table-wrap"><table class="fee-table"><thead><tr><th>CLASS</th><th>SUBJECT</th><th>MONTHLY FEE</th></tr></thead><tbody>
-<tr><td>8</td><td>English</td><td>₹500</td></tr>
-<tr><td>8</td><td>Mathematics + Science</td><td>₹500</td></tr>
-<tr><td>9</td><td>English</td><td>₹500</td></tr>
-<tr><td>9</td><td>Mathematics + Science</td><td>₹500</td></tr>
-<tr><td>10</td><td>English</td><td>₹500</td></tr>
-<tr><td>10</td><td>Mathematics + Science</td><td>₹500</td></tr>
-<tr><td>11–12</td><td>English</td><td>₹500</td></tr>
-<tr><td>11–12</td><td>Mathematics + Science</td><td>₹500</td></tr>
-</tbody></table></div>
-<div class="fees-box"><div><h3>PAY WITH UPI</h3><p>Scan the QR using any UPI app. After payment, send the screenshot on WhatsApp.</p><p class="upi-id"><b>UPI ID:</b> 7037939060@sbi</p><a class="action-btn secondary dark" target="_blank" rel="noopener" href="https://wa.me/917037939060?text=Hello%20RR%20Success%20Point%2C%20I%20have%20made%20my%20fee%20payment.">SEND PAYMENT SCREENSHOT →</a></div><div class="qr-box"><img class="upi-real" src="assets/upi-qr.png" alt="RR Success Point UPI QR"></div></div>
-</section>
+<div id="app" class="hidden">
+<header><h1>RR SUCCESS POINT</h1><button class="secondary" onclick="logout()">Logout</button></header>
+<div class="wrap">
+<aside>
+<button data-page="dashboard" onclick="showPage('dashboard')">🏠 Dashboard</button>
+<button data-page="students" onclick="showPage('students')">👨‍🎓 Students</button>
+<button data-page="applications" onclick="showPage('applications')">📝 Applications</button>
+<button data-page="fees" onclick="showPage('fees')">💰 Fees</button>
+<button data-page="attendance" onclick="showPage('attendance')">📅 Attendance</button>
+<button data-page="tests" onclick="showPage('tests')">📊 Tests/Marks</button>
+<button data-page="reports" onclick="showPage('reports')">📈 Reports</button>
+<button data-page="assistant" onclick="showPage('assistant')">🤖 Assistant</button>
+<button data-page="backup" onclick="showPage('backup')">💾 Backup</button>
+<button data-page="settings" onclick="showPage('settings')">⚙️ Settings</button>
+</aside>
+<main id="main"></main>
+</div></div>
+<div id="modal" class="modal hidden"><div class="modalbox" id="modalbox"></div></div>
+<div id="toast" class="toast hidden"></div>
 
-<section id="contact" class="section contact-section">
-  <div class="section-title">
-    <small>GET IN TOUCH</small>
-    <h2>CONTACT <em>US</em></h2>
-  </div>
-  <div class="contact-grid">
-    <a class="contact-card" href="tel:7037939060"><b>RAM SIR</b><span>ENGLISH</span><strong>7037939060</strong></a>
-    <a class="contact-card" href="tel:9720413056"><b>RAJ SIR</b><span>MATHEMATICS & SCIENCE</span><strong>9720413056</strong></a>
-    <a class="contact-card" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Rajkiye+Inter+College+Road+Neoria+Colony"><b>ADDRESS</b><span>RAJKIYE INTER COLLEGE ROAD</span><strong>NEORIA COLONY</strong></a>
-  </div>
-</section>
-</main>
-
-<footer>
-  <div class="footer-brand">RR <span>SUCCESS POINT</span></div>
-  <p>LEARN TODAY, LEAD TOMORROW</p>
-  <small>© <span id="year"></span> RR Success Point</small>
-</footer>
-
-<a class="whatsapp" href="https://wa.me/917037939060?text=Hello%20RR%20Success%20Point%2C%20I%20want%20information%20about%20coaching." target="_blank" rel="noopener">WA</a>
-
-<script src="script.js"></script>
+<script>
+const KEY='rrsp_free_v1';
+let db=JSON.parse(localStorage.getItem(KEY)||'null')||{
+ settings:{pin:'1234',name:'RR SUCCESS POINT',address:'Rajkiye Inter College Road near Royal Hariteg Neoria Colony'},
+ students:[],applications:[],fees:[],attendance:[],tests:[]
+};
+function save(){localStorage.setItem(KEY,JSON.stringify(db));}
+function toast(t){let x=document.getElementById('toast');x.textContent=t;x.classList.remove('hidden');setTimeout(()=>x.classList.add('hidden'),1800)}
+function login(){if(document.getElementById('pin').value===db.settings.pin){sessionStorage.setItem('rrlogin','1');document.getElementById('login').classList.add('hidden');document.getElementById('app').classList.remove('hidden');showPage('dashboard')}else toast('Wrong PIN')}
+function logout(){sessionStorage.removeItem('rrlogin');location.reload()}
+if(sessionStorage.getItem('rrlogin')==='1'){document.getElementById('login').classList.add('hidden');document.getElementById('app').classList.remove('hidden')}
+function uid(prefix){return prefix+Date.now().toString().slice(-7)}
+function fee(board,subjects){
+ let n=subjects.split('|').filter(Boolean).length;
+ if(board==='UP Board') return n===1?500:n===2?1000:n===3?1500:0;
+ if(board==='CBSE Board') return n===1?700:n===2?1400:n===3?2100:0;
+ return 0;
+}
+function subjectsValue(arr){return arr.join('|')}
+function subjectText(v){return (v||'').split('|').filter(Boolean).join(', ')}
+function subjectSelect(id='',v=[]){
+ return `<label>Subjects</label><select id="${id}" multiple size="5">
+<option value="English" ${v.includes('English')?'selected':''}>English</option>
+<option value="Mathematics" ${v.includes('Mathematics')?'selected':''}>Mathematics</option>
+<option value="Science" ${v.includes('Science')?'selected':''}>Science</option></select><small class="muted">Mobile par multiple select ke liye options ko tap karke select karein.</small>`;
+}
+function getSelected(id){return [...document.getElementById(id).selectedOptions].map(o=>o.value)}
+function showPage(p){
+ document.querySelectorAll('aside button').forEach(b=>b.classList.toggle('active',b.dataset.page===p));
+ const m=document.getElementById('main');
+ if(p==='dashboard')return dashboard(m);
+ if(p==='students')return studentsPage(m);
+ if(p==='applications')return applicationsPage(m);
+ if(p==='fees')return feesPage(m);
+ if(p==='attendance')return attendancePage(m);
+ if(p==='tests')return testsPage(m);
+ if(p==='reports')return reportsPage(m);
+ if(p==='assistant')return assistantPage(m);
+ if(p==='backup')return backupPage(m);
+ if(p==='settings')return settingsPage(m);
+}
+function dashboard(m){
+ let active=db.students.filter(s=>s.status==='Active').length;
+ let up=db.students.filter(s=>s.board==='UP Board'&&s.status==='Active').length;
+ let cb=db.students.filter(s=>s.board==='CBSE Board'&&s.status==='Active').length;
+ let collected=db.fees.reduce((a,f)=>a+Number(f.paid||0),0);
+ let due=db.fees.reduce((a,f)=>a+Math.max(Number(f.monthly||0)-Number(f.paid||0),0),0);
+ let pending=db.applications.filter(a=>a.status==='Pending').length;
+ let cards=[['Active Students',active],['UP Board',up],['CBSE Board',cb],['Fee Collected','₹'+collected],['Total Due','₹'+due],['Pending Applications',pending]];
+ m.innerHTML=`<h2>Dashboard</h2><div class="grid">${cards.map(c=>`<div class="card"><div class="muted">${c[0]}</div><div class="metric">${c[1]}</div></div>`).join('')}</div>
+ <br><div class="card"><h3>Class-wise Students</h3><div class="grid">${[8,9,10,11,12].map(c=>`<div><b>Class ${c}</b><div class="metric">${db.students.filter(s=>Number(s.cls)===c&&s.status==='Active').length}</div></div>`).join('')}</div></div>`;
+}
+function studentForm(s={}){
+ let arr=(s.subjects||'').split('|').filter(Boolean);
+ openModal(`<h2>${s.id?'Edit':'Add'} Student</h2><div class="formgrid">
+<div><label>Student ID</label><input id="sid" value="${s.id||uid('STU')}" ${s.id?'readonly':''}></div>
+<div><label>Student Name</label><input id="sname" value="${s.name||''}"></div>
+<div><label>Father Name</label><input id="father" value="${s.father||''}"></div>
+<div><label>Mobile</label><input id="mobile" value="${s.mobile||''}" inputmode="numeric"></div>
+<div><label>Class</label><select id="cls">${[8,9,10,11,12].map(x=>`<option ${Number(s.cls)===x?'selected':''}>${x}</option>`).join('')}</select></div>
+<div><label>Board</label><select id="board"><option ${s.board==='UP Board'?'selected':''}>UP Board</option><option ${s.board==='CBSE Board'?'selected':''}>CBSE Board</option></select></div>
+<div class="full">${subjectSelect('sub',arr)}</div>
+<div><label>Monthly Fee</label><input id="sfee" readonly value="${s.fee||fee(s.board||'UP Board',s.subjects||'')}"></div>
+<div><label>Admission Date</label><input id="adate" type="date" value="${s.date||new Date().toISOString().slice(0,10)}"></div>
+<div><label>Status</label><select id="status"><option>Active</option><option ${s.status==='Inactive'?'selected':''}>Inactive</option></select></div>
+<div class="full"><label>Address</label><textarea id="address">${s.address||''}</textarea></div>
+<div class="full"><label>Notes</label><textarea id="notes">${s.notes||''}</textarea></div></div>
+<div style="margin-top:14px"><button onclick="saveStudent('${s.id||''}')">Save Student</button> <button class="secondary" onclick="closeModal()">Cancel</button></div>`);
+ document.getElementById('sub').addEventListener('change',updateFormFee);
+ document.getElementById('board').addEventListener('change',updateFormFee);
+}
+function updateFormFee(){document.getElementById('sfee').value=fee(document.getElementById('board').value,subjectsValue(getSelected('sub')))}
+function saveStudent(old){
+ let obj={id:document.getElementById('sid').value.trim(),name:document.getElementById('sname').value.trim(),father:document.getElementById('father').value.trim(),mobile:document.getElementById('mobile').value.trim(),cls:Number(document.getElementById('cls').value),board:document.getElementById('board').value,subjects:subjectsValue(getSelected('sub')),fee:Number(document.getElementById('sfee').value),date:document.getElementById('adate').value,status:document.getElementById('status').value,address:document.getElementById('address').value,notes:document.getElementById('notes').value};
+ if(!obj.name){toast('Student name required');return}
+ if(old){let i=db.students.findIndex(x=>x.id===old);db.students[i]=obj}else db.students.push(obj);save();closeModal();studentsPage(document.getElementById('main'));toast('Student saved')}
+function studentsPage(m){
+ m.innerHTML=`<h2>Students</h2><div class="toolbar"><input id="sq" placeholder="Search name/mobile/ID..." oninput="renderStudents()"><select id="sc" onchange="renderStudents()"><option value="">All Classes</option>${[8,9,10,11,12].map(x=>`<option>${x}</option>`).join('')}</select><select id="sb" onchange="renderStudents()"><option value="">All Boards</option><option>UP Board</option><option>CBSE Board</option></select><button onclick="studentForm()">+ Add Student</button></div><div id="studentTable"></div>`;
+ renderStudents();
+}
+function renderStudents(){
+ let q=(document.getElementById('sq')?.value||'').toLowerCase(), c=document.getElementById('sc')?.value||'', b=document.getElementById('sb')?.value||'';
+ let rows=db.students.filter(s=>(!q||[s.id,s.name,s.mobile,s.father].join(' ').toLowerCase().includes(q))&&(!c||String(s.cls)===c)&&(!b||s.board===b));
+ document.getElementById('studentTable').innerHTML=`<div class="tablewrap"><table><tr><th>ID</th><th>Name</th><th>Class</th><th>Board</th><th>Subjects</th><th>Fee</th><th>Status</th><th>Action</th></tr>${rows.map(s=>`<tr><td>${s.id}</td><td>${s.name}</td><td>${s.cls}</td><td>${s.board}</td><td>${subjectText(s.subjects)}</td><td>₹${s.fee}</td><td>${s.status}</td><td><button onclick='studentForm(${JSON.stringify(s)})'>Edit</button> <button class="danger" onclick="deleteStudent('${s.id}')">Delete</button></td></tr>`).join('')}</table></div>`}
+function deleteStudent(id){if(confirm('Delete this student?')){db.students=db.students.filter(s=>s.id!==id);save();renderStudents();toast('Deleted')}}
+function applicationsPage(m){
+ m.innerHTML=`<h2>Applications</h2><div class="toolbar"><button onclick="applicationForm()">+ New Application</button><select id="aq" onchange="renderApps()"><option value="">All</option><option>Pending</option><option>Approved</option><option>Rejected</option></select></div><div id="appTable"></div>`;renderApps();
+}
+function applicationForm(a={}){
+ let arr=(a.subjects||'').split('|').filter(Boolean);
+ openModal(`<h2>${a.id?'Edit':'New'} Application</h2><div class="formgrid">
+<div><label>Application ID</label><input id="aid" value="${a.id||uid('APP')}" readonly></div><div><label>Student Name</label><input id="aname" value="${a.name||''}"></div><div><label>Father Name</label><input id="afather" value="${a.father||''}"></div><div><label>Mobile</label><input id="amobile" value="${a.mobile||''}"></div>
+<div><label>Class</label><select id="acls">${[8,9,10,11,12].map(x=>`<option ${Number(a.cls)===x?'selected':''}>${x}</option>`).join('')}</select></div>
+<div><label>Board</label><select id="aboard"><option ${a.board==='UP Board'?'selected':''}>UP Board</option><option ${a.board==='CBSE Board'?'selected':''}>CBSE Board</option></select></div>
+<div class="full">${subjectSelect('asub',arr)}</div><div><label>Monthly Fee</label><input id="afee" readonly value="${a.fee||fee(a.board||'UP Board',a.subjects||'')}"></div>
+<div><label>Date</label><input id="adate" type="date" value="${a.date||new Date().toISOString().slice(0,10)}"></div>
+<div><label>Status</label><select id="astatus"><option>Pending</option><option>Approved</option><option>Rejected</option></select></div>
+<div class="full"><label>Notes</label><textarea id="anotes">${a.notes||''}</textarea></div></div>
+<div style="margin-top:14px"><button onclick="saveApp('${a.id||''}')">Save</button> <button class="secondary" onclick="closeModal()">Cancel</button></div>`);
+ document.getElementById('asub').addEventListener('change',updateAppFee);document.getElementById('aboard').addEventListener('change',updateAppFee);
+}
+function updateAppFee(){document.getElementById('afee').value=fee(document.getElementById('aboard').value,subjectsValue(getSelected('asub')))}
+function saveApp(old){
+ let o={id:document.getElementById('aid').value,name:document.getElementById('aname').value.trim(),father:document.getElementById('afather').value.trim(),mobile:document.getElementById('amobile').value.trim(),cls:Number(document.getElementById('acls').value),board:document.getElementById('aboard').value,subjects:subjectsValue(getSelected('asub')),fee:Number(document.getElementById('afee').value),date:document.getElementById('adate').value,status:document.getElementById('astatus').value,notes:document.getElementById('anotes').value};
+ if(!o.name){toast('Name required');return}let i=db.applications.findIndex(x=>x.id===o.id);if(i>=0)db.applications[i]=o;else db.applications.push(o);save();closeModal();applicationsPage(document.getElementById('main'));toast('Application saved')}
+function renderApps(){
+ let q=document.getElementById('aq')?.value||'';let rows=db.applications.filter(a=>!q||a.status===q);
+ document.getElementById('appTable').innerHTML=`<div class="tablewrap"><table><tr><th>ID</th><th>Name</th><th>Class</th><th>Board</th><th>Fee</th><th>Status</th><th>Action</th></tr>${rows.map(a=>`<tr><td>${a.id}</td><td>${a.name}</td><td>${a.cls}</td><td>${a.board}</td><td>₹${a.fee}</td><td><span class="badge ${a.status.toLowerCase()}">${a.status}</span></td><td><button onclick='applicationForm(${JSON.stringify(a)})'>Edit</button> ${a.status==='Pending'?`<button class="ok" onclick="approveApp('${a.id}')">Approve</button> <button class="danger" onclick="rejectApp('${a.id}')">Reject</button>`:''}</td></tr>`).join('')}</table></div>`}
+function approveApp(id){let a=db.applications.find(x=>x.id===id);if(!a)return;a.status='Approved';if(!db.students.some(s=>s.mobile===a.mobile&&s.name.toLowerCase()===a.name.toLowerCase()))db.students.push({id:uid('STU'),name:a.name,father:a.father,mobile:a.mobile,cls:a.cls,board:a.board,subjects:a.subjects,fee:a.fee,date:a.date,status:'Active',address:'',notes:'Approved from '+a.id});save();renderApps();toast('Approved & added to Students')}
+function rejectApp(id){let a=db.applications.find(x=>x.id===id);if(a)a.status='Rejected';save();renderApps();toast('Rejected')}
+function feesPage(m){
+ m.innerHTML=`<h2>Fees</h2><div class="toolbar"><button onclick="feeForm()">+ Record Payment</button><input id="fq" placeholder="Search student ID/name..." oninput="renderFees()"></div><div id="feeTable"></div>`;renderFees();
+}
+function feeForm(){
+ openModal(`<h2>Record Fee Payment</h2><div class="formgrid"><div><label>Student</label><select id="fid">${db.students.filter(s=>s.status==='Active').map(s=>`<option value="${s.id}">${s.name} — ${s.id}</option>`).join('')}</select></div><div><label>Month</label><input id="fmonth" type="month" value="${new Date().toISOString().slice(0,7)}"></div><div><label>Amount Paid</label><input id="fpaid" type="number" min="0"></div><div><label>Payment Date</label><input id="fpdate" type="date" value="${new Date().toISOString().slice(0,10)}"></div><div><label>Mode</label><select id="fmode"><option>Cash</option><option>UPI</option><option>Bank Transfer</option><option>Other</option></select></div><div class="full"><label>Notes</label><textarea id="fnote"></textarea></div></div><br><button onclick="saveFee()">Save Payment</button> <button class="secondary" onclick="closeModal()">Cancel</button>`);
+}
+function saveFee(){let s=db.students.find(x=>x.id===document.getElementById('fid').value);if(!s){toast('Add a student first');return}let o={receipt:uid('RC'),studentId:s.id,name:s.name,month:document.getElementById('fmonth').value,monthly:s.fee,paid:Number(document.getElementById('fpaid').value||0),date:document.getElementById('fpdate').value,mode:document.getElementById('fmode').value,note:document.getElementById('fnote').value};db.fees.push(o);save();closeModal();feesPage(document.getElementById('main'));toast('Payment saved')}
+function renderFees(){let q=(document.getElementById('fq')?.value||'').toLowerCase();let rows=db.fees.filter(f=>!q||[f.studentId,f.name].join(' ').toLowerCase().includes(q));document.getElementById('feeTable').innerHTML=`<div class="tablewrap"><table><tr><th>Receipt</th><th>Student</th><th>Month</th><th>Monthly</th><th>Paid</th><th>Due</th><th>Status</th><th>Action</th></tr>${rows.map(f=>{let due=Math.max(Number(f.monthly)-Number(f.paid),0),st=due===0?'Paid':Number(f.paid)>0?'Partial':'Due';return `<tr><td>${f.receipt}</td><td>${f.name}</td><td>${f.month}</td><td>₹${f.monthly}</td><td>₹${f.paid}</td><td>₹${due}</td><td><span class="badge ${st.toLowerCase()}">${st}</span></td><td><button onclick='receipt(${JSON.stringify(f)})'>Receipt</button></td></tr>`}).join('')}</table></div>`}
+function receipt(f){let due=Math.max(Number(f.monthly)-Number(f.paid),0);openModal(`<div id="receipt"><h2>RR SUCCESS POINT</h2><p>${db.settings.address}</p><hr><h3>Fee Receipt</h3><p><b>Receipt:</b> ${f.receipt}</p><p><b>Student:</b> ${f.name}</p><p><b>Student ID:</b> ${f.studentId}</p><p><b>Month:</b> ${f.month}</p><p><b>Monthly Fee:</b> ₹${f.monthly}</p><p><b>Paid:</b> ₹${f.paid}</p><p><b>Due:</b> ₹${due}</p><p><b>Mode:</b> ${f.mode}</p><p><b>Date:</b> ${f.date}</p></div><button onclick="window.print()">Print / Save PDF</button> <button class="secondary" onclick="closeModal()">Close</button>`)}
+function attendancePage(m){
+ m.innerHTML=`<h2>Attendance</h2><div class="toolbar"><input id="attdate" type="date" value="${new Date().toISOString().slice(0,10)}"><button onclick="loadAttendance()">Load</button></div><div id="attbox"></div>`;loadAttendance();
+}
+function loadAttendance(){let d=document.getElementById('attdate').value;let saved=db.attendance.filter(x=>x.date===d);document.getElementById('attbox').innerHTML=`<div class="tablewrap"><table><tr><th>ID</th><th>Name</th><th>Class</th><th>Status</th></tr>${db.students.filter(s=>s.status==='Active').map(s=>{let x=saved.find(a=>a.studentId===s.id);return `<tr><td>${s.id}</td><td>${s.name}</td><td>${s.cls}</td><td><select data-att="${s.id}"><option ${!x||x.status==='Present'?'selected':''}>Present</option><option ${x?.status==='Absent'?'selected':''}>Absent</option></select></td></tr>`}).join('')}</table></div><br><button onclick="saveAttendance()">Save Attendance</button>`}
+function saveAttendance(){let d=document.getElementById('attdate').value;db.attendance=db.attendance.filter(x=>x.date!==d);document.querySelectorAll('[data-att]').forEach(el=>db.attendance.push({date:d,studentId:el.dataset.att,status:el.value}));save();toast('Attendance saved')}
+function testsPage(m){
+ m.innerHTML=`<h2>Tests & Marks</h2><div class="toolbar"><button onclick="testForm()">+ Add Marks</button></div><div class="tablewrap"><table><tr><th>Date</th><th>Student</th><th>Subject</th><th>Test</th><th>Marks</th><th>Total</th></tr>${db.tests.map(t=>`<tr><td>${t.date}</td><td>${t.name}</td><td>${t.subject}</td><td>${t.test}</td><td>${t.marks}</td><td>${t.total}</td></tr>`).join('')}</table></div>`}
+function testForm(){openModal(`<h2>Add Test Marks</h2><div class="formgrid"><div><label>Student</label><select id="tid">${db.students.map(s=>`<option value="${s.id}">${s.name} — ${s.id}</option>`).join('')}</select></div><div><label>Subject</label><select id="tsub"><option>English</option><option>Mathematics</option><option>Science</option></select></div><div><label>Test Name</label><input id="ttest" placeholder="Unit Test 1"></div><div><label>Marks</label><input id="tmarks" type="number"></div><div><label>Total Marks</label><input id="ttotal" type="number" value="100"></div><div><label>Date</label><input id="tdate" type="date" value="${new Date().toISOString().slice(0,10)}"></div></div><br><button onclick="saveTest()">Save</button> <button class="secondary" onclick="closeModal()">Cancel</button>`)}
+function saveTest(){let s=db.students.find(x=>x.id===document.getElementById('tid').value);db.tests.push({date:document.getElementById('tdate').value,name:s.name,studentId:s.id,subject:document.getElementById('tsub').value,test:document.getElementById('ttest').value,marks:Number(document.getElementById('tmarks').value),total:Number(document.getElementById('ttotal').value)});save();closeModal();testsPage(document.getElementById('main'));toast('Marks saved')}
+function reportsPage(m){let collected=db.fees.reduce((a,f)=>a+Number(f.paid||0),0),due=db.fees.reduce((a,f)=>a+Math.max(Number(f.monthly||0)-Number(f.paid||0),0),0);m.innerHTML=`<h2>Reports</h2><div class="grid"><div class="card"><b>Total Students</b><div class="metric">${db.students.length}</div></div><div class="card"><b>Applications</b><div class="metric">${db.applications.length}</div></div><div class="card"><b>Collection</b><div class="metric">₹${collected}</div></div><div class="card"><b>Due</b><div class="metric">₹${due}</div></div></div><br><div class="card"><h3>Teachers</h3><p>English — Ram Sir</p><p>Mathematics & Science — Raj Sir</p></div>`}
+function assistantPage(m){
+ m.innerHTML=`<h2>🤖 Free Assistant</h2><div class="card"><p class="muted">Ye internet AI nahi hai; ye software ke saved data ko search karke free me jawab deta hai.</p><input id="ask" placeholder="Jaise: total students, class 10, due fee, UP Board"><br><br><button onclick="askAI()">Ask</button><div id="answer" style="margin-top:15px"></div></div>`;
+}
+function askAI(){let q=document.getElementById('ask').value.toLowerCase(),ans='';if(q.includes('total')||q.includes('kitne'))ans=`Total students: ${db.students.length}`;else if(q.includes('pending'))ans=`Pending applications: ${db.applications.filter(a=>a.status==='Pending').length}`;else if(q.includes('due'))ans=`Total fee due: ₹${db.fees.reduce((a,f)=>a+Math.max(Number(f.monthly)-Number(f.paid),0),0)}`;else if(q.includes('up board'))ans=`UP Board active students: ${db.students.filter(s=>s.board==='UP Board'&&s.status==='Active').length}`;else {let c=q.match(/class\\s*(8|9|10|11|12)/);if(c)ans=`Class ${c[1]} students: ${db.students.filter(s=>String(s.cls)===c[1]).length}`;else ans='Try: total students, pending applications, due fee, UP Board, class 10';}document.getElementById('answer').innerHTML=`<div class="card">${ans}</div>`}
+function backupPage(m){m.innerHTML=`<h2>Backup & Restore</h2><div class="card"><p>Data isi browser me save hota hai. Backup file zaroor banate rahna.</p><button onclick="downloadBackup()">⬇️ Download Backup</button><br><br><label>Restore Backup</label><input id="restore" type="file" accept=".json" onchange="restoreBackup(this)"></div>`}
+function downloadBackup(){let blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='RR_SUCCESS_POINT_BACKUP.json';a.click()}
+function restoreBackup(inp){let f=inp.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{db=JSON.parse(r.result);save();toast('Backup restored');showPage('dashboard')}catch(e){toast('Invalid backup')}};r.readAsText(f)}
+function settingsPage(m){m.innerHTML=`<h2>Settings</h2><div class="card"><label>Coaching Name</label><input id="setname" value="${db.settings.name}"><label>Address</label><textarea id="setaddr">${db.settings.address}</textarea><label>New Admin PIN</label><input id="setpin" type="password" placeholder="Leave blank to keep current"><br><br><button onclick="saveSettings()">Save Settings</button></div>`}
+function saveSettings(){db.settings.name=document.getElementById('setname').value;db.settings.address=document.getElementById('setaddr').value;let p=document.getElementById('setpin').value;if(p)db.settings.pin=p;save();toast('Settings saved')}
+function openModal(x){document.getElementById('modalbox').innerHTML=x;document.getElementById('modal').classList.remove('hidden')}
+function closeModal(){document.getElementById('modal').classList.add('hidden')}
+if(sessionStorage.getItem('rrlogin')==='1')showPage('dashboard');
+</script>
 </body>
 </html>
