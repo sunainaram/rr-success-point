@@ -17,7 +17,7 @@ input,select,textarea{width:100%;padding:10px;border:1px solid var(--border);bor
 .tablewrap{overflow:auto;background:#fff;border:1px solid var(--border);border-radius:12px}table{border-collapse:collapse;width:100%;min-width:800px}th,td{padding:9px;border-bottom:1px solid var(--border);text-align:left;font-size:13px}th{background:#eef4ff;position:sticky;top:0}
 .badge{display:inline-block;padding:4px 8px;border-radius:99px;font-size:11px;background:#e2e8f0}.paid{background:#dcfce7;color:#166534}.due{background:#fee2e2;color:#991b1b}.pending{background:#fef3c7;color:#92400e}
 .hidden{display:none}.modal{position:fixed;inset:0;background:#0008;display:flex;align-items:center;justify-content:center;padding:16px;z-index:20}.modalbox{background:#fff;border-radius:14px;padding:18px;width:min(800px,100%);max-height:90vh;overflow:auto}
-.login{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0f172a}.loginbox{width:min(420px,92%);background:#fff;padding:24px;border-radius:16px}.loginbox h1{margin-top:0}
+.login{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;background:#0f172a;padding:20px;position:relative;z-index:100}.loginbox{width:min(420px,100%);background:#fff;padding:24px;border-radius:16px;box-shadow:0 12px 35px #0006}.loginbox h1{margin-top:0}.loginbox input{display:block;position:relative;z-index:101}.loginbox button{display:block;position:relative;z-index:101}
 .toast{position:fixed;right:15px;bottom:15px;background:#111827;color:#fff;padding:12px 16px;border-radius:10px;z-index:50}
 @media(max-width:900px){aside{width:62px;padding:7px}aside button{font-size:0;text-align:center}aside button::first-letter{font-size:20px}.grid{grid-template-columns:repeat(2,1fr)}.formgrid{grid-template-columns:1fr}main{padding:12px}.card{padding:12px}}
 @media(max-width:520px){.grid{grid-template-columns:1fr}.toolbar input,.toolbar select{width:100%}}
@@ -28,7 +28,7 @@ input,select,textarea{width:100%;padding:10px;border:1px solid var(--border);bor
   <div class="loginbox">
     <h1>RR SUCCESS POINT</h1>
     <p class="muted">Free Coaching Management Software</p>
-    <label>Admin PIN</label><input id="pin" type="password" placeholder="Default: 1234">
+    <label for="pin">Admin PIN</label><input id="pin" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="20" placeholder="Enter PIN">
     <button style="width:100%;margin-top:12px" onclick="login()">Login</button>
     <p class="muted">First login PIN: <b>1234</b>. Change it from Settings.</p>
   </div>
