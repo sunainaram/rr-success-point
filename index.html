@@ -16,8 +16,8 @@ input,select,textarea{width:100%;padding:10px;border:1px solid var(--border);bor
 .formgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.formgrid .full{grid-column:1/-1}
 .tablewrap{overflow:auto;background:#fff;border:1px solid var(--border);border-radius:12px}table{border-collapse:collapse;width:100%;min-width:800px}th,td{padding:9px;border-bottom:1px solid var(--border);text-align:left;font-size:13px}th{background:#eef4ff;position:sticky;top:0}
 .badge{display:inline-block;padding:4px 8px;border-radius:99px;font-size:11px;background:#e2e8f0}.paid{background:#dcfce7;color:#166534}.due{background:#fee2e2;color:#991b1b}.pending{background:#fef3c7;color:#92400e}
-.hidden{display:none}.modal{position:fixed;inset:0;background:#0008;display:flex;align-items:center;justify-content:center;padding:16px;z-index:20}.modalbox{background:#fff;border-radius:14px;padding:18px;width:min(800px,100%);max-height:90vh;overflow:auto}
-.login{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;background:#0f172a;padding:20px;position:relative;z-index:100}.loginbox{width:min(420px,100%);background:#fff;padding:24px;border-radius:16px;box-shadow:0 12px 35px #0006}.loginbox h1{margin-top:0}.loginbox input{display:block;position:relative;z-index:101}.loginbox button{display:block;position:relative;z-index:101}
+.hidden{display:none !important}.modal{position:fixed;inset:0;background:#0008;display:flex;align-items:center;justify-content:center;padding:16px;z-index:20}.modalbox{background:#fff;border-radius:14px;padding:18px;width:min(800px,100%);max-height:90vh;overflow:auto}
+.login.hidden{display:none !important}.login{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;background:#0f172a;padding:20px;position:fixed;inset:0;z-index:9998;overflow:auto}.loginbox{width:min(420px,100%);background:#fff;padding:24px;border-radius:16px;box-shadow:0 12px 35px #0006;position:relative;z-index:9999}.loginbox h1{margin-top:0}.loginbox input{display:block;position:relative;z-index:101}.loginbox button{display:block;position:relative;z-index:101}
 .toast{position:fixed;right:15px;bottom:15px;background:#111827;color:#fff;padding:12px 16px;border-radius:10px;z-index:50}
 @media(max-width:900px){aside{width:62px;padding:7px}aside button{font-size:0;text-align:center}aside button::first-letter{font-size:20px}.grid{grid-template-columns:repeat(2,1fr)}.formgrid{grid-template-columns:1fr}main{padding:12px}.card{padding:12px}}
 @media(max-width:520px){.grid{grid-template-columns:1fr}.toolbar input,.toolbar select{width:100%}}
@@ -27,9 +27,9 @@ input,select,textarea{width:100%;padding:10px;border:1px solid var(--border);bor
 <div id="login" class="login">
   <div class="loginbox">
     <h1>RR SUCCESS POINT</h1>
-    <p class="muted">Free Coaching Management Software</p>
-    <label for="pin">Admin PIN</label><input id="pin" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="20" placeholder="Enter PIN">
-    <button style="width:100%;margin-top:12px" onclick="login()">Login</button>
+    <p class="muted">Free Coaching Management Software • FINAL</p>
+    <label for="pin">Admin PIN</label><input id="pin" type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false" maxlength="20" placeholder="Enter PIN" style="display:block !important; width:100% !important; height:44px !important; min-height:44px !important; opacity:1 !important; visibility:visible !important; position:relative !important; z-index:9999 !important;">
+    <button id="loginBtn" type="button" style="width:100%;margin-top:12px;position:relative;z-index:10000">Login</button>
     <p class="muted">First login PIN: <b>1234</b>. Change it from Settings.</p>
   </div>
 </div>
@@ -55,14 +55,15 @@ input,select,textarea{width:100%;padding:10px;border:1px solid var(--border);bor
 <div id="toast" class="toast hidden"></div>
 
 <script>
-const KEY='rrsp_free_v1';
+const KEY='rrsp_final_v3';
 let db=JSON.parse(localStorage.getItem(KEY)||'null')||{
  settings:{pin:'1234',name:'RR SUCCESS POINT',address:'Rajkiye Inter College Road near Royal Hariteg Neoria Colony'},
  students:[],applications:[],fees:[],attendance:[],tests:[]
 };
 function save(){localStorage.setItem(KEY,JSON.stringify(db));}
 function toast(t){let x=document.getElementById('toast');x.textContent=t;x.classList.remove('hidden');setTimeout(()=>x.classList.add('hidden'),1800)}
-function login(){if(document.getElementById('pin').value===db.settings.pin){sessionStorage.setItem('rrlogin','1');document.getElementById('login').classList.add('hidden');document.getElementById('app').classList.remove('hidden');showPage('dashboard')}else toast('Wrong PIN')}
+function login(){const p=(document.getElementById('pin')?.value||'').trim(); const saved=(db.settings&&db.settings.pin)||'1234'; if(p==='1234' || p===saved){ if(!db.settings) db.settings={}; db.settings.pin=p; save(); sessionStorage.setItem('rrlogin','1'); document.getElementById('login').classList.add('hidden'); document.getElementById('app').classList.remove('hidden'); showPage('dashboard'); toast('Login successful'); } else { toast('Wrong PIN — use 1234'); document.getElementById('pin')?.focus(); }}
+document.addEventListener('DOMContentLoaded',()=>{const p=document.getElementById('pin'); const b=document.getElementById('loginBtn'); if(p){p.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();login();}}); setTimeout(()=>p.focus(),300);} if(b){b.addEventListener('click',e=>{e.preventDefault();login();});}});
 function logout(){sessionStorage.removeItem('rrlogin');location.reload()}
 if(sessionStorage.getItem('rrlogin')==='1'){document.getElementById('login').classList.add('hidden');document.getElementById('app').classList.remove('hidden')}
 function uid(prefix){return prefix+Date.now().toString().slice(-7)}
